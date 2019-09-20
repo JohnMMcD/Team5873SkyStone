@@ -76,16 +76,16 @@ android {
         release {
             // Disable debugging for release versions so it can be uploaded to Google Play.
             //debuggable true
-            ndk {
-                abiFilters "armeabi-v7a", "arm64-v8a"
+            ndk { // Removed arm64 per https://github.com/FIRST-Tech-Challenge/skystone/wiki/Troubleshooting#problem-workaround
+                abiFilters "armeabi-v7a"
             }
         }
         debug {
             debuggable true
             jniDebuggable true
             renderscriptDebuggable true
-            ndk {
-                abiFilters "armeabi-v7a", "arm64-v8a"
+            ndk { // Removed arm64 per https://github.com/FIRST-Tech-Challenge/skystone/wiki/Troubleshooting#problem-workaround
+                abiFilters "armeabi-v7a"
             }
         }
     }
