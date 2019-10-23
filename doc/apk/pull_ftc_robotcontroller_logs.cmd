@@ -1,7 +1,7 @@
 @SET OLDPATH=%PATH%
 @SET PATH=%LOCALAPPDATA%\Android\Sdk\platform-tools;%PATH%;
 
-adb pull /storage/emulated/0/robotControllerLog.txt robotControllerLog.txt
+adb pull /storage/emulated/0/robotControllerLog.txt   robotControllerLog.txt
 adb pull /storage/emulated/0/robotControllerLog.txt.1 robotControllerLog.txt.1
 adb pull /storage/emulated/0/robotControllerLog.txt.2 robotControllerLog.txt.2
 adb pull /storage/emulated/0/robotControllerLog.txt.3 robotControllerLog.txt.3
