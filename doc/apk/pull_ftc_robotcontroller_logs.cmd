@@ -1,18 +1,30 @@
-@SET OLDPATH=%PATH%
-@SET PATH=%LOCALAPPDATA%\Android\Sdk\platform-tools;%PATH%;
+@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb
+@IF "x%1"=="x" ECHO Please call this script with a team number; using 9999 for now
+@SET PATH=%PATH%;%LOCALAPPDATA%\Android\Sdk\platform-tools
 
-adb pull /storage/emulated/0/robotControllerLog.txt   robotControllerLog.txt
-adb pull /storage/emulated/0/robotControllerLog.txt.1 robotControllerLog.txt.1
-adb pull /storage/emulated/0/robotControllerLog.txt.2 robotControllerLog.txt.2
-adb pull /storage/emulated/0/robotControllerLog.txt.3 robotControllerLog.txt.3
-adb pull /storage/emulated/0/robotControllerLog.txt.4 robotControllerLog.txt.4
-@SET PATH=%OLDPATH%
+@IF "x%1"=="x" SET TEAM=9999
+@IF NOT "x%1"=="x" SET TEAM=%1
+mkdir %TEAM%
+copy clean_logcat.pl %TEAM%
+pushd %TEAM%
+  %ADB% start-server
+  
+  %ADB% pull /storage/emulated/0/driverStationLog.txt     logcat-ds.txt
+  %ADB% pull /storage/emulated/0/driverStationLog.txt.1   logcat-ds-1.txt
+  %ADB% pull /storage/emulated/0/driverStationLog.txt.2   logcat-ds-2.txt
+  %ADB% pull /storage/emulated/0/driverStationLog.txt.3   logcat-ds-3.txt
+  %ADB% pull /storage/emulated/0/driverStationLog.txt.4   logcat-ds-4.txt
 
-@echo If you have Perl installed and on your path, you can use these command to clean up the files a bit
-@echo If you don't have Perl installed, press Ctrl-C
-pause
-perl clean_logcat.pl robotControllerLog.txt   cleaned-robotControllerLog.txt
-perl clean_logcat.pl robotControllerLog.txt.1 cleaned-robotControllerLog1.txt
-perl clean_logcat.pl robotControllerLog.txt.2 cleaned-robotControllerLog2.txt
-perl clean_logcat.pl robotControllerLog.txt.3 cleaned-robotControllerLog3.txt
-perl clean_logcat.pl robotControllerLog.txt.4 cleaned-robotControllerLog4.txt
+  %ADB% pull /storage/emulated/0/robotControllerLog.txt   logcat-rc.txt
+  %ADB% pull /storage/emulated/0/robotControllerLog.txt.1 logcat-rc-1.txt
+  %ADB% pull /storage/emulated/0/robotControllerLog.txt.2 logcat-rc-2.txt
+  %ADB% pull /storage/emulated/0/robotControllerLog.txt.3 logcat-rc-3.txt
+  %ADB% pull /storage/emulated/0/robotControllerLog.txt.4 logcat-rc-4.txt
+  %ADB% pull /storage/emulated/0/FIRST
+
+  FOR %%I in (logcat*.txt) DO perl clean_logcat.pl %%~nI.txt cleaned-%%~nI.txt
+
+popd
+
+@echo "Downloaded files for team %TEAM%"
+@pause
