@@ -28,6 +28,8 @@ $urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_lib
 $urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/robot-wiring-guide.pdf"
 $urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/control-hub-game-manual-addendum.pdf"
 $urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/managing-your-control-system.pdf"
+$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/referee-and-head-referee-manual.pdf"
+
 foreach ($url in $urls) { 
 
   # Use the last part of the path as the filename
