@@ -7,37 +7,36 @@
 ## https://www.firstinspires.org/resource-library/ftc/technology-information-and-resources
 ## https://www.firstinspires.org/resource-library/ftc/robot-building-resources
 ## https://www.firstinspires.org/resource-library/ftc/volunteer-resources
-## 
 
-$urls = @("https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/game-manual-part-1.pdf")
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/game-manual-part-2.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/forum-answered-questions.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/field-inspection-checklist.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/field-setup-guide.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/control-system-advisor-manual.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/control-system-troubleshooting-guide.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/analysis-esd-mitigation-echin.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/field-manager-manual.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/field-reset-guide.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/field-inspector-manual.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/field-technical-advisor-manual.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/scorekeeper-manual.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/ftc-scorekeeper-quickstartguide.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/wi-fi-technical-advisor-manual.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/wi-fi-event-guide.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/wi-fi-event-checklist.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/robot-reliability-checklist.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/robot-wiring-guide.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/control-hub-game-manual-addendum.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/managing-your-control-system.pdf"
-$urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/referee-and-head-referee-manual.pdf"
+$ftc_library = "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc"
+$ftc_library_urls = @("game-manual-part-1.pdf")
+$ftc_library_urls += "game-manual-part-2.pdf"
+$ftc_library_urls += "forum-answered-questions.pdf"
+$ftc_library_urls += "control-system-advisor-manual.pdf"
+$ftc_library_urls += "control-system-troubleshooting-guide.pdf"
+$ftc_library_urls += "analysis-esd-mitigation-echin.pdf"
+$ftc_library_urls += "field-inspection-checklist.pdf"
+$ftc_library_urls += "field-setup-guide.pdf"
+$ftc_library_urls += "field-manager-manual.pdf"
+$ftc_library_urls += "field-reset-guide.pdf"
+$ftc_library_urls += "field-inspector-manual.pdf"
+$ftc_library_urls += "field-technical-advisor-manual.pdf"
+$ftc_library_urls += "scorekeeper-manual.pdf"
+$ftc_library_urls += "ftc-scorekeeper-quickstartguide.pdf"
+$ftc_library_urls += "wi-fi-technical-advisor-manual.pdf"
+$ftc_library_urls += "wi-fi-event-guide.pdf"
+$ftc_library_urls += "wi-fi-event-checklist.pdf"
+$ftc_library_urls += "robot-reliability-checklist.pdf"
+$ftc_library_urls += "robot-wiring-guide.pdf"
+$ftc_library_urls += "control-hub-game-manual-addendum.pdf"
+$ftc_library_urls += "managing-your-control-system.pdf"
+$ftc_library_urls += "referee-and-head-referee-manual.pdf"
 
-foreach ($url in $urls) { 
+foreach ($filename in $ftc_library_urls) { 
 
-  # Use the last part of the path as the filename
-  $filename = $url -replace '.*/'
+  $url = "$ftc_library/$filename"
 
-  Write-Output "URL:  $url"
+  #Write-Output "URL:  $url"
   Write-Output "File: $filename"
   Invoke-WebRequest -Uri $url -OutFile $filename
 }
@@ -46,7 +45,7 @@ foreach ($url in $urls) {
 $urls_large = @("https://www.revrobotics.com/content/sw/REVHubFirmware_1_08_02.bin")
 $urls_large += "https://www.revrobotics.com/content/sw/chv1/REV-31-1595-FW-1.0.1-ota.zip";
 foreach ($url in $urls_large) { 
-
+  # Use the last part of the path as the filename
   $filename = $url -replace '.*/'
   
   if (Test-Path $filename) {
