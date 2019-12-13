@@ -28,12 +28,6 @@ $urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_lib
 $urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/robot-wiring-guide.pdf"
 $urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/control-hub-game-manual-addendum.pdf"
 $urls += "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/managing-your-control-system.pdf"
-
-# These are pretty large
-$urls += "https://www.revrobotics.com/content/sw/REVHubFirmware_1_08_02.bin"
-$urls += "https://www.revrobotics.com/content/sw/chv1/REV-31-1595-FW-1.0.1-ota.zip"
-
-
 foreach ($url in $urls) { 
 
   # Use the last part of the path as the filename
@@ -42,6 +36,22 @@ foreach ($url in $urls) {
   Write-Output "URL:  $url"
   Write-Output "File: $filename"
   Invoke-WebRequest -Uri $url -OutFile $filename
+}
+
+# The files at these URLs are large, don't change frequently, and have a version number embedded in them, so we check to see if the files already exist before downloading them again
+$urls_large = @("https://www.revrobotics.com/content/sw/REVHubFirmware_1_08_02.bin")
+$urls_large += "https://www.revrobotics.com/content/sw/chv1/REV-31-1595-FW-1.0.1-ota.zip";
+foreach ($url in $urls_large) { 
+
+  $filename = $url -replace '.*/'
+  
+  if (Test-Path $filename) {
+    Write-Output "Skipping download of $url because it has already been downloaded."
+  } else {
+    Write-Output "URL:  $url"
+    Write-Output "File: $filename"
+    Invoke-WebRequest -Uri $url -OutFile $filename
+  }
 }
 
 # This array should hold all the URLs that need to be renamed to avoid conflicts or because the names in their URLs are unhelpful
