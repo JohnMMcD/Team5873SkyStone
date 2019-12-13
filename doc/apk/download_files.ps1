@@ -41,9 +41,11 @@ foreach ($filename in $ftc_library_urls) {
   Invoke-WebRequest -Uri $url -OutFile $filename
 }
 
-# The files at these URLs are large, don't change frequently, and have a version number embedded in them, so we check to see if the files already exist before downloading them again
+# The files at these URLs are large, don't change frequently, and have a version number embedded in them,
+# so we check to see if the files already exist before downloading them again.
 $urls_large = @("https://www.revrobotics.com/content/sw/REVHubFirmware_1_08_02.bin")
 $urls_large += "https://www.revrobotics.com/content/sw/chv1/REV-31-1595-FW-1.0.1-ota.zip";
+
 foreach ($url in $urls_large) { 
   # Use the last part of the path as the filename
   $filename = $url -replace '.*/'
@@ -57,7 +59,8 @@ foreach ($url in $urls_large) {
   }
 }
 
-# This array should hold all the URLs that need to be renamed to avoid conflicts or because the names in their URLs are unhelpful
+# This array should hold all the URLs that need to be renamed to avoid conflicts or because the names in their URLs are unhelpful.
+# The first element is the URL, and the next is the new name.
 $urls_to_rename = @(
              "https://github.com/FIRST-Tech-Challenge/SkyStone/releases/download/v5.3/FtcDriverStation-release.apk",
              "DS53.apk",
