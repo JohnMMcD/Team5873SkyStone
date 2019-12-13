@@ -1,5 +1,7 @@
 # Invoke with
 # powershell.exe -executionpolicy bypass -File download_files.ps1
+# Latest version at 
+# https://github.com/JohnMMcD/Team5873SkyStone/blob/master/doc/apk/download_files.ps1
 
 # URLs from
 ## https://www.firstinspires.org/resource-library/ftc/technology-information-and-resources
