@@ -12,25 +12,26 @@ $ftc_library = "https://www.firstinspires.org/sites/default/files/uploads/resour
 $ftc_library_urls = @("game-manual-part-1.pdf")
 $ftc_library_urls += "game-manual-part-2.pdf"
 $ftc_library_urls += "forum-answered-questions.pdf"
-$ftc_library_urls += "control-system-advisor-manual.pdf"
-$ftc_library_urls += "control-system-troubleshooting-guide.pdf"
-$ftc_library_urls += "analysis-esd-mitigation-echin.pdf"
 $ftc_library_urls += "field-inspection-checklist.pdf"
 $ftc_library_urls += "field-setup-guide.pdf"
 $ftc_library_urls += "field-manager-manual.pdf"
 $ftc_library_urls += "field-reset-guide.pdf"
 $ftc_library_urls += "field-inspector-manual.pdf"
 $ftc_library_urls += "field-technical-advisor-manual.pdf"
-$ftc_library_urls += "scorekeeper-manual.pdf"
-$ftc_library_urls += "ftc-scorekeeper-quickstartguide.pdf"
 $ftc_library_urls += "wi-fi-technical-advisor-manual.pdf"
 $ftc_library_urls += "wi-fi-event-guide.pdf"
 $ftc_library_urls += "wi-fi-event-checklist.pdf"
+$ftc_library_urls += "control-system-advisor-manual.pdf"
+$ftc_library_urls += "control-system-troubleshooting-guide.pdf"
+$ftc_library_urls += "managing-your-control-system.pdf"
+$ftc_library_urls += "analysis-esd-mitigation-echin.pdf"
+$ftc_library_urls += "control-hub-game-manual-addendum.pdf"
 $ftc_library_urls += "robot-reliability-checklist.pdf"
 $ftc_library_urls += "robot-wiring-guide.pdf"
-$ftc_library_urls += "control-hub-game-manual-addendum.pdf"
-$ftc_library_urls += "managing-your-control-system.pdf"
+$ftc_library_urls += "scorekeeper-manual.pdf"
+$ftc_library_urls += "ftc-scorekeeper-quickstartguide.pdf"
 $ftc_library_urls += "referee-and-head-referee-manual.pdf"
+$ftc_library_urls += "dean's-list-interviewer-and-reviewer-manual.pdf"
 
 foreach ($filename in $ftc_library_urls) { 
 
@@ -79,7 +80,7 @@ $urls_to_rename = @(
              "https://github.com/ftctechnh/ftc_app/wiki/Managing-a-Control-Hub",
              "Managing-a-Control-Hub.html",
              "http://www.revrobotics.com/software/",
-             "Expansion-Hub-Firmware-Update.html"             
+             "Expansion-Hub-Firmware-Update.html"
             )
 
 for ([int]$i=0; $i -lt $urls_to_rename.Count; $i++)
