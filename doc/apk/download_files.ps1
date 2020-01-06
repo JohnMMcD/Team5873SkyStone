@@ -1,7 +1,7 @@
 # Invoke with
 # powershell.exe -executionpolicy bypass -File download_files.ps1
 # Latest version at 
-# https://github.com/JohnMMcD/Team5873SkyStone/blob/master/doc/apk/download_files.ps1
+# https://raw.githubusercontent.com/JohnMMcD/Team5873SkyStone/master/doc/apk/download_files.ps1
 
 # URLs from
 ## https://www.firstinspires.org/resource-library/ftc/technology-information-and-resources
@@ -37,7 +37,31 @@ foreach ($filename in $ftc_library_urls) {
 
   $url = "$ftc_library/$filename"
 
-  #Write-Output "URL:  $url"
+#  Write-Output "URL:  $url"
+  Write-Output "File: $filename"
+  Invoke-WebRequest -Uri $url -OutFile $filename
+}
+
+$github = "https://raw.githubusercontent.com/JohnMMcD/Team5873SkyStone/master/doc/apk"
+$github_urls = @("adb_connect_to_control_hub.cmd")
+$github_urls += "connect_to_programming.cmd"
+$github_urls += "install_ds.cmd"
+$github_urls += "pull_ftc_FIRST_directory.cmd"
+$github_urls += "pull_ftc_robotcontroller_logs.cmd"
+$github_urls += "reinstall_driver_station.cmd"
+$github_urls += "reinstall_rc.cmd"
+$github_urls += "show_and_export_profiles.cmd"
+$github_urls += "uninstall_all.cmd"
+$github_urls += "reinstall_driver_station_52.cmd"
+$github_urls += "reinstall_driver_station_53.cmd"
+$github_urls += "reinstall_rc_52-32.cmd"
+$github_urls += "reinstall_rc_53.cmd"
+
+foreach ($filename in $github_urls) { 
+
+  $url = "$github/$github_filename"
+
+#  Write-Output "URL:  $url"
   Write-Output "File: $filename"
   Invoke-WebRequest -Uri $url -OutFile $filename
 }
