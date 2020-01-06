@@ -59,9 +59,8 @@ $github_urls += "reinstall_rc_53.cmd"
 
 foreach ($filename in $github_urls) { 
 
-  $url = "$github/$github_filename"
+  $url = "$github/$filename"
 
-#  Write-Output "URL:  $url"
   Write-Output "File: $filename"
   Invoke-WebRequest -Uri $url -OutFile $filename
 }

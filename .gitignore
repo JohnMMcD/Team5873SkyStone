@@ -1,6 +1,8 @@
 # built application files
 *.apk
 *.ap_
+REVHub*.bin
+REV*.zip
 
 # Java class files
 *.class
@@ -26,6 +28,9 @@ Thumbs.db
 .idea
 .gradle
 build/
+
+# Documentation files
+doc/apk/*.html
 
 *ASUS_PC_01*
 
