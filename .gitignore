@@ -9,6 +9,9 @@
 bin/
 gen/
 
+# PDF files downloaded
+*.pdf
+
 # Local configuration file (sdk path, etc)
 local.properties
 
