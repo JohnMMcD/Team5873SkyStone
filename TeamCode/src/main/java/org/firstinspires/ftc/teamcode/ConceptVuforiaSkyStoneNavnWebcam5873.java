@@ -125,19 +125,17 @@ public class ConceptVuforiaSkyStoneNavnWebcam5873 extends LinearOpMode {
     // Class Members
     private OpenGLMatrix lastLocation = null;
 
-    /**
-     * This is the webcam we are to use. As with other hardware devices such as motors and
-     * servos, this device is identified using the robot configuration tool in the FTC application.
-     */
-    private WebcamName webcamName = null;
-
     private float phoneXRotate    = 0;
 
     @Override public void runOpMode() {
         /*
          * Retrieve the camera we are to use.
          */
-        webcamName = hardwareMap.get(WebcamName.class, "Webcam 1");
+        /*
+          This is the webcam we are to use. As with other hardware devices such as motors and
+          servos, this device is identified using the robot configuration tool in the FTC application.
+         */
+        WebcamName webcamName = hardwareMap.get(WebcamName.class, "Webcam 1");
 
         /*
          * Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
@@ -189,8 +187,7 @@ public class ConceptVuforiaSkyStoneNavnWebcam5873 extends LinearOpMode {
         rear2.setName("Rear Perimeter 2");
 
         // For convenience, gather together all the trackable objects in one easily-iterable collection */
-        List<VuforiaTrackable> allTrackables = new ArrayList<>();
-        allTrackables.addAll(targetsSkyStone);
+        List<VuforiaTrackable> allTrackables = new ArrayList<>(targetsSkyStone);
 
         /*
           In order for localization to work, we need to tell the system where each target is on the field, and
