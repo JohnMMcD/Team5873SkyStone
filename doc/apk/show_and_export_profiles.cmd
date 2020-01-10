@@ -18,5 +18,5 @@ netsh wlan show profiles | findstr 5873
 netsh wlan export profile name="DIRECT-eB-5873-N-RC" folder=. key=clear
 netsh wlan export profile name="DIRECT-4L-5873-N-RC" folder=. key=clear
 
+@echo Now run
 @echo netsh wlan add profile filename=".\DIRECT-eB-5873-N-RC.xml"
-

@@ -1,6 +1,6 @@
 @cls
 @echo This program installs the Robot Controller app used by phones
-@echo for FIRST Tech Challenge. Press Ctrl-C to cancel running this program.
+@echo for FIRST Tech Challenge.
 @echo .
 @echo Before you run this program, make sure that:
 @echo * the USB drivers for the phone are installed on this computer
@@ -23,10 +23,11 @@
 @echo The third command installs the app. It should should report lines like this:
 @echo     Performing Streamed Install (or Streamed Install)
 @echo     Success
-
+@echo .
+@echo Press Ctrl-C to cancel running this program.
 @pause
 
-@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb
+@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb.exe
 @SET PATH=%PATH%;%LOCALAPPDATA%\Android\Sdk\platform-tools
 @IF NOT EXIST %ADB% GOTO noadb
 

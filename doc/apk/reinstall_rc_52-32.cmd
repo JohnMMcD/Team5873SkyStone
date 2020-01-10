@@ -23,9 +23,11 @@
 @echo The third command installs the app. It should should report lines like this:
 @echo     Performing Streamed Install (or Streamed Install)
 @echo     Success
+@echo .
 @echo Press Ctrl-C to cancel running this program.
+@pause
 
-@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb
+@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb.exe
 @SET PATH=%PATH%;%LOCALAPPDATA%\Android\Sdk\platform-tools
 @IF NOT EXIST %ADB% GOTO noadb
 

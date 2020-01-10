@@ -1,6 +1,8 @@
 @cls
 @echo This program pulls the logs and the FIRST directory off the robot controller phone
-@echo for FIRST Tech Challenge. Press Ctrl-C to cancel running this program.
+@echo for FIRST Tech Challenge. The FIRST directory contains all the configuration
+@echo files and any on-bot programs such as Blocks and On-Bot Java.
+
 @echo .
 @echo Before you run this program, make sure that:
 @echo * the USB drivers for the phone are installed on this computer
@@ -10,14 +12,12 @@
 @echo   using Android Studio as your programming environment is not required, nor
 @echo   does Android Studio need to be running).
 @echo .
-@echo The FIRST directory contains all the configuration files and any on-bot programs
-@echo such as Blocks and On-Bot Java.
-@echo .
 @IF "x%1"=="x" ECHO Please call this script with a team number; using 9999 for now
 @echo .
-pause
+@echo Press Ctrl-C to cancel running this program.
+@pause
 
-@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb
+@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb.exe
 @SET PATH=%PATH%;%LOCALAPPDATA%\Android\Sdk\platform-tools
 @IF NOT EXIST %ADB% GOTO noadb
 

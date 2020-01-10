@@ -18,12 +18,10 @@
 @echo java.lang.IllegalArgumentException: Unknown package: com.qualcomm.ftcrobotcontroller
 @echo .
 @echo Press Ctrl-C to cancel running this program.
-
-@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb
-@SET PATH=%PATH%;%LOCALAPPDATA%\Android\Sdk\platform-tools
-
 @pause
 
+@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb.exe
+@SET PATH=%PATH%;%LOCALAPPDATA%\Android\Sdk\platform-tools
 @IF NOT EXIST %ADB% GOTO noadb
 
 %ADB% start-server

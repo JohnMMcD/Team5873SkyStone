@@ -11,7 +11,7 @@
 @echo .
 @echo Press Ctrl-C to cancel running this program.
 
-@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb
+@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb.exe
 @SET PATH=%PATH%;%LOCALAPPDATA%\Android\Sdk\platform-tools
 @IF NOT EXIST %ADB% GOTO noadb
 
@@ -27,6 +27,7 @@ GOTO done
 
 :noadb
 @echo The 'adb' command is not present in its usual location.
+@echo It is supposed to be at %ADB% .
 @echo Please make sure Android Studio is installed. Using Android
 @echo Studio as the development environment is not required, nor is
 @echo downloading the FTC SDK.
