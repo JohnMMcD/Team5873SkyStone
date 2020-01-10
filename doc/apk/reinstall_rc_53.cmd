@@ -1,6 +1,6 @@
 @cls
 @echo This program installs the Robot Controller app used by phones
-@echo for FIRST Tech Challenge. Press Ctrl-C to cancel running this program.
+@echo for FIRST Tech Challenge.
 @echo .
 @echo Before you run this program, make sure that:
 @echo * the USB drivers for the phone are installed on this computer
@@ -23,13 +23,28 @@
 @echo The third command installs the app. It should should report lines like this:
 @echo     Performing Streamed Install (or Streamed Install)
 @echo     Success
+@echo Press Ctrl-C to cancel running this program.
+
+@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb
+@SET PATH=%PATH%;%LOCALAPPDATA%\Android\Sdk\platform-tools
+@IF NOT EXIST %ADB% GOTO noadb
 
 @pause
 
-%LOCALAPPDATA%\Android\Sdk\platform-tools\adb start-server
+%ADB% start-server
 
-%LOCALAPPDATA%\Android\Sdk\platform-tools\adb uninstall com.qualcomm.ftcrobotcontroller
+%ADB% uninstall com.qualcomm.ftcrobotcontroller
 
-%LOCALAPPDATA%\Android\Sdk\platform-tools\adb install RC53.apk
+%ADB% install RC53.apk
+
+GOTO done
+
+:noadb
+@echo The 'adb' command is not present in its usual location.
+@echo Please make sure Android Studio is installed. Using Android
+@echo Studio as the development environment is not required, nor is
+@echo downloading the FTC SDK.
+
+:done
 
 pause

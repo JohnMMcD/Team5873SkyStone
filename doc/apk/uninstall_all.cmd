@@ -1,6 +1,6 @@
 @cls
 @echo This program uninstalls the Robot Controller and Driver Station apps used by
-@echo phones for FIRST Tech Challenge. Press Ctrl-C to cancel running this program.
+@echo phones for FIRST Tech Challenge.
 @echo .
 @echo Before you run this program, make sure that:
 @echo * the USB drivers for the phone are installed on this computer
@@ -17,13 +17,28 @@
 @echo Exception occurred while dumping:
 @echo java.lang.IllegalArgumentException: Unknown package: com.qualcomm.ftcrobotcontroller
 @echo .
+@echo Press Ctrl-C to cancel running this program.
+
+@SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb
+@SET PATH=%PATH%;%LOCALAPPDATA%\Android\Sdk\platform-tools
 
 @pause
 
-%LOCALAPPDATA%\Android\Sdk\platform-tools\adb start-server
+@IF NOT EXIST %ADB% GOTO noadb
 
-%LOCALAPPDATA%\Android\Sdk\platform-tools\adb uninstall com.qualcomm.ftcrobotcontroller
+%ADB% start-server
 
-%LOCALAPPDATA%\Android\Sdk\platform-tools\adb uninstall com.qualcomm.ftcdriverstation
+%ADB% uninstall com.qualcomm.ftcrobotcontroller
 
+%ADB% uninstall com.qualcomm.ftcdriverstation
+
+goto done
+
+:noadb
+@echo The 'adb' command is not present in its usual location.
+@echo Please make sure Android Studio is installed. Using Android
+@echo Studio as the development environment is not required, nor is
+@echo downloading the FTC SDK.
+
+:done
 @pause

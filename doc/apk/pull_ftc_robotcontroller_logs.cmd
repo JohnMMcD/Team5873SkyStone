@@ -19,6 +19,7 @@ pause
 
 @SET ADB=%LOCALAPPDATA%\Android\Sdk\platform-tools\adb
 @SET PATH=%PATH%;%LOCALAPPDATA%\Android\Sdk\platform-tools
+@IF NOT EXIST %ADB% GOTO noadb
 
 @IF "x%1"=="x" SET TEAM=9999
 @IF NOT "x%1"=="x" SET TEAM=%1
@@ -48,3 +49,12 @@ popd
 
 @echo "Downloaded files for team %TEAM%"
 @pause
+goto done
+
+:noadb
+@echo The 'adb' command is not present in its usual location.
+@echo Please make sure Android Studio is installed. Using Android
+@echo Studio as the development environment is not required, nor is
+@echo downloading the FTC SDK.
+
+:done
