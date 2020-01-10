@@ -40,7 +40,9 @@ pushd %TEAM%
   %ADB% pull /storage/emulated/0/robotControllerLog.txt.4 logcat-rc-4.txt
   %ADB% pull /storage/emulated/0/FIRST
 
-  FOR %%I in (logcat*.txt) DO perl clean_logcat.pl %%~nI.txt cleaned-%%~nI.txt
+  perl -V 1>NUL 2>NUL
+
+  IF NOT ERRORLEVEL 1 FOR %%I in (logcat*.txt) DO perl clean_logcat.pl %%~nI.txt cleaned-%%~nI.txt
 
 popd
 
