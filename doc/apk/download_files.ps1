@@ -46,8 +46,7 @@ $github = "https://raw.githubusercontent.com/JohnMMcD/Team5873SkyStone/master/do
 $github_urls = @("adb_connect_to_control_hub.cmd")
 $github_urls += "connect_to_programming.cmd"
 $github_urls += "install_ds.cmd"
-$github_urls += "pull_ftc_FIRST_directory.cmd"
-$github_urls += "pull_ftc_robotcontroller_logs.cmd"
+$github_urls += "pull_configuration.cmd"
 $github_urls += "reinstall_driver_station.cmd"
 $github_urls += "reinstall_rc.cmd"
 $github_urls += "show_and_export_profiles.cmd"
@@ -68,7 +67,9 @@ foreach ($filename in $github_urls) {
 # The files at these URLs are large, don't change frequently, and have a version number embedded in them,
 # so we check to see if the files already exist before downloading them again.
 $urls_large = @("https://www.revrobotics.com/content/sw/REVHubFirmware_1_08_02.bin")
-$urls_large += "https://www.revrobotics.com/content/sw/chv1/REV-31-1595-FW-1.0.1-ota.zip";
+$urls_large += "https://www.revrobotics.com/content/sw/chv1/REV-31-1595-FW-1.0.1-ota.zip"
+$urls_large += "https://www.revrobotics.com/content/sw/REVHubInterface-1.2.0.exe"
+$urls_large += "https://www.ftdichip.com/Drivers/CDM/CDM21228_Setup.zip"
 
 foreach ($url in $urls_large) { 
   # Use the last part of the path as the filename
