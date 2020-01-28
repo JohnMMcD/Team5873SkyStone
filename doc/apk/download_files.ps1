@@ -1,9 +1,16 @@
-# Invoke with
-# powershell.exe -executionpolicy bypass -File download_files.ps1
-# Latest version at 
-# https://raw.githubusercontent.com/JohnMMcD/Team5873SkyStone/master/doc/apk/download_files.ps1
+# This script copies some files which are needed by volunteers at events.
+# It grabs the latest version of the game-specific files, plus some files which are needed
+# for FTAs, field and robot inspectors, referees, judges, etc.
 
-# URLs from
+# To run this script, first download the contents of the two URLs below to a Windows 10 machine
+# or a Windows 7 machine with the latest version of PowerShell.
+# https://raw.githubusercontent.com/JohnMMcD/Team5873SkyStone/master/doc/apk/download_files.ps1
+# https://raw.githubusercontent.com/JohnMMcD/Team5873SkyStone/master/doc/apk/download_files.cmd
+# Then double-click the download_files.cmd file.
+# The best time to run this script is after 3PM EST on the Friday before an event. This
+# time is after the Game Design Committe updates the official forum.
+
+# URLs are taken from
 ## https://www.firstinspires.org/resource-library/ftc/technology-information-and-resources
 ## https://www.firstinspires.org/resource-library/ftc/robot-building-resources
 ## https://www.firstinspires.org/resource-library/ftc/volunteer-resources
@@ -55,6 +62,8 @@ $github_urls += "reinstall_driver_station_52.cmd"
 $github_urls += "reinstall_driver_station_53.cmd"
 $github_urls += "reinstall_rc_52-32.cmd"
 $github_urls += "reinstall_rc_53.cmd"
+$github_urls += "reinstall_driver_station_54.cmd"
+$github_urls += "reinstall_rc_54.cmd"
 
 foreach ($filename in $github_urls) { 
 
@@ -87,6 +96,10 @@ foreach ($url in $urls_large) {
 # This array should hold all the URLs that need to be renamed to avoid conflicts or because the names in their URLs are unhelpful.
 # The first element is the URL, and the next is the new name.
 $urls_to_rename = @(
+             "https://github.com/FIRST-Tech-Challenge/SkyStone/raw/v5.4/doc/apk/FtcDriverStation-release.apk",
+             "DS54.apk",
+             "https://github.com/FIRST-Tech-Challenge/SkyStone/raw/v5.4/doc/apk/FtcRobotController-release.apk",
+             "RC54.apk",
              "https://github.com/FIRST-Tech-Challenge/SkyStone/releases/download/v5.3/FtcDriverStation-release.apk",
              "DS53.apk",
              "https://github.com/FIRST-Tech-Challenge/SkyStone/releases/download/v5.3/FtcRobotController-release.apk",
