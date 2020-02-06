@@ -39,6 +39,7 @@ $ftc_library_urls += "scorekeeper-manual.pdf"
 $ftc_library_urls += "ftc-scorekeeper-quickstartguide.pdf"
 $ftc_library_urls += "referee-and-head-referee-manual.pdf"
 $ftc_library_urls += "dean's-list-interviewer-and-reviewer-manual.pdf"
+$ftc_library_urls += "tournament-director-guide.pdf"
 
 foreach ($filename in $ftc_library_urls) { 
 
