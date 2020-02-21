@@ -15,9 +15,7 @@
 # time is after the Game Design Committe updates the official forum.
 
 $github = "https://raw.githubusercontent.com/JohnMMcD/Team5873SkyStone/master/doc/apk"
-$github_urls = @("get_latest_version.ps1")
-$github_urls += "download_files.cmd"
-$github_urls += "download_files.ps1"
+$github_urls = @("download_files.ps1")
 
 foreach ($filename in $github_urls) { 
 
