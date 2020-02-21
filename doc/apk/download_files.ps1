@@ -97,9 +97,9 @@ foreach ($url in $urls_large) {
 # This array should hold all the URLs that need to be renamed to avoid conflicts or because the names in their URLs are unhelpful.
 # The first element is the URL, and the next is the new name.
 $urls_to_rename = @(
-             "https://github.com/FIRST-Tech-Challenge/SkyStone/raw/v5.4/doc/apk/FtcDriverStation-release.apk",
+             "https://github.com/FIRST-Tech-Challenge/SkyStone/releases/download/v5.4/FtcDriverStation-release.apk",
              "DS54.apk",
-             "https://github.com/FIRST-Tech-Challenge/SkyStone/raw/v5.4/doc/apk/FtcRobotController-release.apk",
+             "https://github.com/FIRST-Tech-Challenge/SkyStone/releases/download/v5.4/FtcRobotController-release.apk",
              "RC54.apk",
              "https://github.com/FIRST-Tech-Challenge/SkyStone/releases/download/v5.3/FtcDriverStation-release.apk",
              "DS53.apk",
