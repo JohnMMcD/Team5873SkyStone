@@ -1,2 +1,3 @@
-@REM See download_files.ps1 for an explanation of this
+@REM # See instructions and explanation in get_latest_version.ps1 .
+powershell.exe -executionpolicy bypass -File get_latest_version.ps1
 powershell.exe -executionpolicy bypass -File download_files.ps1
